@@ -11,7 +11,7 @@ app = Flask(__name__)
 
 class ResultFinder:
     def __init__(self):
-        chromedriver_autoinstaller.install()
+        # chromedriver_autoinstaller.install()
         chrome_options = webdriver.ChromeOptions()
         chrome_options.add_experimental_option('detach', True)
         self.driver = webdriver.Chrome(options=chrome_options)
@@ -29,7 +29,7 @@ class ResultFinder:
             current_date = start_date + timedelta(days=day)
             dob_field.send_keys(current_date.strftime('%d-%m-%Y'))
             search_button.click()
-            time.sleep(2)
+            time.sleep(5)
 
             try:
                 result_details = self.driver.find_element(By.XPATH, value='//*[@id="results"]/div/div[1]/div[1]')
